@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>❤️ ILoveYou ❤️</title>
+    <style>
+        @media screen and (max-width: 800px) {
+            .body {
+                background-image: url(/images/mobile.jpeg) !important;
+                min-width: 50%;
+                background-color: #000;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+        }
+        
+        .body {
+            -webkit-font-smoothing: antialiased;
+            font-family: Helvetica Neue, Helvetica, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+            font-size: 100%;
+            margin: 0;
+            background-image: url(/images/us.jpeg);
+            background-size: cover;
+        }
+        
+        .contentTimer {
+            position: static;
+            /* width: 100%;
+            top: 40%; */
+            /* transform: translate(0, -50%); */
+            text-align: center;
+            background-color: transparent;
+        }
+        
+        .timer {
+            font-size: 180%;
+            line-height: 1.5;
+            margin: 1em 0;
+        }
+        
+        .timer b {
+            color: rgb(253, 99, 125);
+        }
+        
+        span {
+            color: #333;
+            font-family: Helvetica Neue, Helvetica, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+            font-size: 85%;
+        }
+        
+        .span {
+            color: #123321;
+        }
+    </style>
+</head>
+
+<body class="body">
+    <div class="contentTimer">
+        <div class="timer">
+            <span class="span">Hayatıma Anlam Katmanın Üstünden</span><br>
+            <b id="d"></b><span> Gün</span> <b id="h"></b> <span> Saat</span> <b id="m"></b> <span> Dakika</span> <b id="s"></b> <span> Saniye</span><br>
+            <span class="span">Geçti</span>
+        </div>
+    </div>
+
+    <script>
+        function timer() {
+            var start = new Date(2020, 8, 29, 17, 35);
+            var t = new Date() - start;
+            var h = ~~(t / 1000 / 60 / 60 % 24);
+            if (h < 10) {
+                h = "0" + h;
+            }
+            var m = ~~(t / 1000 / 60 % 60);
+            if (m < 10) {
+                m = "0" + m;
+            }
+
+            var s = ~~(t / 1000 % 60);
+            if (s < 10) {
+                s = "0" + s;
+            }
+            document.getElementById('d').innerHTML = ~~(t / 1000 / 60 / 60 / 24);
+            document.getElementById('h').innerHTML = h;
+            document.getElementById('m').innerHTML = m;
+            document.getElementById('s').innerHTML = s;
+        }
+        timer();
+        setInterval(timer, 1000);
+    </script>
+</body>
+
+</html>
